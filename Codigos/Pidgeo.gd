@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 @export var speed = 120
 @export var detection_range = 400                     #Se crean las variables de la paloma a utilizar
@@ -12,7 +12,7 @@ var player = null
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not player:
 		speed = Vector2.ZERO
 		return
@@ -21,12 +21,10 @@ func _physics_process(delta):
 	var dist = dir.length()
 
 	if dist < detection_range:
-		speed = dir.normalized() * speed
+		speed = dir.normalized() * _delta
 	else:
 		speed = Vector2.ZERO
-
-	move_and_slide()
-
+	position += speed
 func _on_body_entered(t):              #Función para que la paloma reconozca cuando colisiona con el jugador
 	if t.is_in_group(player):
 		t.call("Damage")

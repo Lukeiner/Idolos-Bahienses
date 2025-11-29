@@ -3,9 +3,9 @@ using Godot;
 public partial class Main : Node
 {
     public int Creditos = 5;
-    PackedScene BasePlayer;
+    PackedScene BasePlayer,BaseFlock;
     Player P1=null,P2=null;
-    Node2D  Spawn1, Spawn2, Flecha;
+    Node2D  Spawn1, Spawn2, Nido, Flecha;
     Label CrediLabel;
     Control ContrMain;
     CollisionShape2D areaNext, areaNextEnd;
@@ -16,10 +16,12 @@ public partial class Main : Node
     public override void _Ready()
     {
         BasePlayer = ResourceLoader.Load<PackedScene>("res://Tscns/Player.tscn");
+        BaseFlock = ResourceLoader.Load<PackedScene>("res://Tscns/Flock.tscn");
         Cam = GetNode<Camera2D>("Cam");
         Flecha = Cam.GetNode<Node2D>("Flecha");
         Spawn1 = Cam.GetNode<Node2D>("Spawn1");
         Spawn2 = Cam.GetNode<Node2D>("Spawn2");
+        Nido = Cam.GetNode<Node2D>("nido");
         ContrMain = GetNode<Control>("Control");
         CrediLabel = ContrMain.GetNode<Label>("CrediLabel");
         CrediLabel.Text = "Creditos: 5";
@@ -125,6 +127,9 @@ public partial class Main : Node
                 P2.anim.Play();
             }
             boMap = false;
+            var f=BaseFlock.Instantiate<Node2D>();
+            f.GlobalPosition = Nido.GlobalPosition;
+            AddChild(f);
         }
     }
 

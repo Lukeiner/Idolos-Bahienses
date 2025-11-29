@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://kgovogt5kvt4"]
+[gd_scene load_steps=3 format=3 uid="uid://dx1jv7jt2dhts"]
 
 [ext_resource type="Script" uid="uid://d0s3c7hmpu1uc" path="res://Codigos/Flock.gd" id="1_2q6ib"]
+[ext_resource type="PackedScene" uid="uid://d2bww7m8u3cko" path="res://Tscns/Pidgeo.tscn" id="2_dqpxr"]
 
 [node name="Flock" type="Node2D"]
 script = ExtResource("1_2q6ib")
+pidgeo_scene = ExtResource("2_dqpxr")
 
 [node name="Timer" type="Timer" parent="."]
 
