@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://b56u06swrj8be"]
+[gd_scene load_steps=2 format=3 uid="uid://b56u06swrj8be"]
+
+[ext_resource type="Script" uid="uid://doun3lmdhyls7" path="res://Codigos/Main.cs" id="1_ojdui"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_ojdui")
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Spawn" type="Node2D" parent="Map"]
