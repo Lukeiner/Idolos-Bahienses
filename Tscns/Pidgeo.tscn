@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7enb5"]
 size = Vector2(169.25, 159.76563)
 
-[node name="Pidgeo" type="Area2D"]
+[node name="Pidgeo" type="Area2D" groups=["enemigo"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(43, 44)

@@ -75,7 +75,7 @@ position = Vector2(640, 569)
 shape = SubResource("RectangleShape2D_ojdui")
 
 [node name="Next" type="Area2D" parent="Cam"]
-position = Vector2(1186, 727)
+position = Vector2(1283, 737)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cam/Next"]
 position = Vector2(-90, -291.5)
@@ -83,7 +83,7 @@ shape = SubResource("RectangleShape2D_b08ir")
 disabled = true
 
 [node name="End" type="Area2D" parent="Cam"]
-position = Vector2(319, 727)
+position = Vector2(171, 730)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cam/End"]
 position = Vector2(-90, -291.5)
