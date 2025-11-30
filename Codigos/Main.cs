@@ -120,6 +120,7 @@ public partial class Main : Node
 			Creditos = 5;
 			Puntaje = 0;
 			contador = 0;
+<<<<<<< HEAD
             GetNode<AudioStreamPlayer>("Audio1").Play();
             GetNode<AudioStreamPlayer>("Audio2").Stop();
             GetNode<Node2D>("Map").Visible = true;
@@ -129,6 +130,11 @@ public partial class Main : Node
             GetNode<Sprite2D>("WIN").Visible = false;
         }
     }
+=======
+
+		}
+	}
+>>>>>>> 0a60d0e8397cec2ecdd09d8f4033140835faaf0c
 
 	public void Spawn(int i)
 	{
@@ -175,6 +181,7 @@ public partial class Main : Node
 			pixeles = Camera.GlobalPosition.X;
 			var r=random.RandiRange(1,4);
 			PackedScene temp=null;
+<<<<<<< HEAD
 			
             contador++;
 			if (contador>3 && boss==null)
@@ -210,6 +217,28 @@ public partial class Main : Node
                 CallDeferred(Node.MethodName.AddChild, f);
             }
         }
+=======
+			switch (r)
+			{
+				case 1:
+					temp = BaseFlock1;
+					break;
+				case 2:
+					temp = BaseFlock2;
+					break;
+				case 3:
+					temp = BaseFlock3;
+					break;
+				case 4:
+					temp = BaseFlock4;
+					break;
+			}
+			var f = temp.Instantiate<Node2D>();
+			f.GlobalPosition = Nido.GlobalPosition;
+			CallDeferred(Node.MethodName.AddChild, f);
+			contador++;
+		}
+>>>>>>> 0a60d0e8397cec2ecdd09d8f4033140835faaf0c
 	}
 
 	public void _on_area_2d_body_entered(Node2D node)
