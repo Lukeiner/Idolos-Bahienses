@@ -26,7 +26,7 @@ public partial class Player : CharacterBody2D
 		{
 			id = 2;
 			t = 7;
-			Modulate = Colors.Blue;
+			Modulate = Colors.Cyan;
 			CollisionLayer = 2;
 			CollisionMask = 2;
 		}

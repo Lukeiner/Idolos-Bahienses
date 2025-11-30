@@ -1,13 +1,13 @@
 [gd_scene load_steps=26 format=3 uid="uid://b56u06swrj8be"]
 
 [ext_resource type="Script" uid="uid://doun3lmdhyls7" path="res://Codigos/Main.cs" id="1_ojdui"]
-[ext_resource type="Texture2D" uid="uid://cjjopxt8jdhv2" path="res://icon.svg" id="2_4m062"]
 [ext_resource type="Texture2D" uid="uid://mr46vastgvop" path="res://Imagenes/Fondo/Asset_Calle.png" id="2_chhgu"]
 [ext_resource type="Texture2D" uid="uid://dsg6u3u7ds3gx" path="res://Imagenes/Fondo/Asset_Ciudad1.png" id="3_uoiuf"]
 [ext_resource type="Script" uid="uid://cvjgget3mq160" path="res://Codigos/Paralelo.cs" id="3_wat6t"]
 [ext_resource type="Texture2D" uid="uid://cuvn8836eadud" path="res://Imagenes/Fondo/Asset_Ciudad2.png" id="4_wat6t"]
 [ext_resource type="Texture2D" uid="uid://ch1mtw2a8vf1l" path="res://Imagenes/Fondo/Asset_Ciudad3.png" id="5_7su1v"]
 [ext_resource type="Texture2D" uid="uid://blakw8cqc4jmp" path="res://Imagenes/Fondo/Asset_Fondo.png" id="6_i7qol"]
+[ext_resource type="Texture2D" uid="uid://8tqkskdhkmxs" path="res://Imagenes/Asset_Boton flecha.png" id="7_43msu"]
 [ext_resource type="Script" uid="uid://bqdb48jv8kbk4" path="res://Tscns/PauseMenu.gd" id="9_wat6t"]
 [ext_resource type="Texture2D" uid="uid://dplxc020x6ces" path="res://Imagenes/Menú Pausa/Asset_Menu pausa.png" id="10_7su1v"]
 [ext_resource type="Texture2D" uid="uid://bwwpv5ydij4a0" path="res://Imagenes/Menú Pausa/Asset_Boton reintentar.png" id="11_563ux"]
@@ -164,9 +164,9 @@ position_smoothing_enabled = true
 [node name="Flecha" type="Sprite2D" parent="Cam"]
 visible = false
 z_index = 200
-position = Vector2(1716.0001, 576)
-scale = Vector2(2.9, 1.2000006)
-texture = ExtResource("2_4m062")
+position = Vector2(1674, 528.2)
+scale = Vector2(2.4333324, 2.1656568)
+texture = ExtResource("7_43msu")
 
 [node name="AssetFondo" type="Sprite2D" parent="Cam"]
 z_index = -10

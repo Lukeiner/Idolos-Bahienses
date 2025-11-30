@@ -18,7 +18,7 @@ public partial class Main : Node
 	RandomNumberGenerator random;
 	int idA = 0, contador=0;
 	public int Puntaje = 0;
-	Node2D boss;
+	Node boss;
 	public override void _Ready()
 	{
 		random = new RandomNumberGenerator();
@@ -106,7 +106,7 @@ public partial class Main : Node
 			else {
 				Camera.GlobalPosition += Spawn1.Position - Camera.GlobalPosition;
 			}
-			if (P2 == null && Input.IsActionJustPressed("3") && !boMap && Creditos>0)
+			if (P2 == null && Input.IsActionJustPressed("3") && !boMap && Creditos > 0)
 			{
 				Creditos--;
 				Spawn(2);
@@ -120,21 +120,15 @@ public partial class Main : Node
 			Creditos = 5;
 			Puntaje = 0;
 			contador = 0;
-<<<<<<< HEAD
-            GetNode<AudioStreamPlayer>("Audio1").Play();
-            GetNode<AudioStreamPlayer>("Audio2").Stop();
-            GetNode<Node2D>("Map").Visible = true;
-            GetNode<Node2D>("Cam").Visible = true;
-            GetNode<Node2D>("Map2").Visible = false;
-            GetNode<Node2D>("Cam2").Visible = false;
-            GetNode<Sprite2D>("WIN").Visible = false;
-        }
-    }
-=======
-
-		}
+			GetNode<AudioStreamPlayer>("Audio1").Play();
+			GetNode<AudioStreamPlayer>("Audio2").Stop();
+			GetNode<Node2D>("Map").Visible = true;
+			GetNode<Node2D>("Cam").Visible = true;
+			GetNode<Node2D>("Map2").Visible = false;
+			GetNode<Node2D>("Cam2").Visible = false;
+			GetNode<Sprite2D>("WIN").Visible = false;
+		} 
 	}
->>>>>>> 0a60d0e8397cec2ecdd09d8f4033140835faaf0c
 
 	public void Spawn(int i)
 	{
@@ -161,42 +155,41 @@ public partial class Main : Node
 		}
 	}
 
-	public void _on_end_body_entered(Node2D node)
-	{
-		if (node.IsInGroup("player") && ((Player)node).id==idA)
-		{
-			areaNextEnd.CallDeferred(CollisionShape2D.MethodName.SetDisabled, true);
-			if (P1 != null)
-			{
-				P1.FStop = 0.2;
-				P1.anim.CallDeferred(AnimationPlayer.MethodName.Play);
+    public void _on_end_body_entered(Node2D node)
+    {
+        if (node.IsInGroup("player") && ((Player)node).id == idA)
+        {
+            GD.Print("sale");
+            areaNextEnd.CallDeferred(CollisionShape2D.MethodName.SetDisabled, true);
+            if (P1 != null)
+            {
+                P1.FStop = 0.2;
+                P1.anim.CallDeferred(AnimationPlayer.MethodName.Play);
 
-			}
-			if (P2 != null)
-			{
-				P2.FStop = 0.2;
-				P2.anim.CallDeferred(AnimationPlayer.MethodName.Play);
-			}
-			boMap = false;
-			pixeles = Camera.GlobalPosition.X;
-			var r=random.RandiRange(1,4);
-			PackedScene temp=null;
-<<<<<<< HEAD
-			
+            }
+            if (P2 != null)
+            {
+                P2.FStop = 0.2;
+                P2.anim.CallDeferred(AnimationPlayer.MethodName.Play);
+            }
+            boMap = false;
+            pixeles = Camera.GlobalPosition.X;
+            var r = random.RandiRange(1, 4);
+            PackedScene temp = null;
             contador++;
-			if (contador>3 && boss==null)
-			{
-                bossResourceLoader.Load<PackedScene>("res://Tscns/Boss combate.tscn").Instantiate();
-				AddChild(boss);
-				GetNode<AudioStreamPlayer>("Audio1").Stop();
-				GetNode<AudioStreamPlayer>("Audio2").Play();
-				GetNode<Node2D>("Map").Visible = false;
-				GetNode<Node2D>("Cam").Visible = false;
-				GetNode<Node2D>("Map2").Visible = true;
-				GetNode<Node2D>("Cam2").Visible = true;
-			}
-			else
-			{
+            if (contador > 3 && boss == null)
+            {
+                boss = ResourceLoader.Load<PackedScene>("res://Tscns/Boss combate.tscn").Instantiate();
+                AddChild(boss);
+                GetNode<AudioStreamPlayer>("Audio1").Stop();
+                GetNode<AudioStreamPlayer>("Audio2").Play();
+                GetNode<Node2D>("Map").Visible = false;
+                GetNode<Node2D>("Cam").Visible = false;
+                GetNode<Node2D>("Map2").Visible = true;
+                GetNode<Node2D>("Cam2").Visible = true;
+            }
+            else
+            {
                 switch (r)
                 {
                     case 1:
@@ -216,56 +209,35 @@ public partial class Main : Node
                 f.GlobalPosition = Nido.GlobalPosition;
                 CallDeferred(Node.MethodName.AddChild, f);
             }
+		}
+    }
+
+    public void _on_area_2d_body_entered(Node2D node)
+    {
+        if (node.IsInGroup("player"))
+        {
+			GD.Print("entra");
+            idA = ((Player)node).id;
+            Flecha.CallDeferred(Sprite2D.MethodName.SetVisible, false);
+            areaNext.CallDeferred(CollisionShape2D.MethodName.SetDisabled, true);
+            areaNextEnd.CallDeferred(CollisionShape2D.MethodName.SetDisabled, false);
+            if (P1 != null)
+            {
+                P1.FStop = 10;
+                P1.anim.CallDeferred(AnimationPlayer.MethodName.Play);
+            }
+            if (P2 != null)
+            {
+                P2.FStop = 10;
+                P2.anim.CallDeferred(AnimationPlayer.MethodName.Pause);
+            }
+            boMap = true;
         }
-=======
-			switch (r)
-			{
-				case 1:
-					temp = BaseFlock1;
-					break;
-				case 2:
-					temp = BaseFlock2;
-					break;
-				case 3:
-					temp = BaseFlock3;
-					break;
-				case 4:
-					temp = BaseFlock4;
-					break;
-			}
-			var f = temp.Instantiate<Node2D>();
-			f.GlobalPosition = Nido.GlobalPosition;
-			CallDeferred(Node.MethodName.AddChild, f);
-			contador++;
-		}
->>>>>>> 0a60d0e8397cec2ecdd09d8f4033140835faaf0c
-	}
 
-	public void _on_area_2d_body_entered(Node2D node)
-	{
-		if (node.IsInGroup("player"))
-		{
-			idA=((Player)node).id;
-			Flecha.CallDeferred(Sprite2D.MethodName.SetVisible, false);
-			areaNext.CallDeferred(CollisionShape2D.MethodName.SetDisabled, true);
-			areaNextEnd.CallDeferred(CollisionShape2D.MethodName.SetDisabled, false);
-			if (P1 != null)
-			{
-				P1.FStop = 10;
-				P1.anim.CallDeferred(AnimationPlayer.MethodName.Play);
-			}
-			if (P2 != null)
-			{
-				P2.FStop = 10;
-				P2.anim.CallDeferred(AnimationPlayer.MethodName.Pause);
-			}
-			boMap = true;
-		}
-
-	}
+    }
 
     internal void WIN()
     {
-		GetNode<Sprite2D>("WIN").Visible = true;
+        GetNode<Sprite2D>("WIN").Visible = true;
     }
 }
