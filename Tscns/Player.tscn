@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://clxdgn4ntjh7t"]
+[gd_scene load_steps=12 format=3 uid="uid://clxdgn4ntjh7t"]
 
 [ext_resource type="Script" uid="uid://bjafkrx7e78w2" path="res://Codigos/Player.cs" id="1_b03ak"]
-[ext_resource type="Texture2D" uid="uid://cjjopxt8jdhv2" path="res://icon.svg" id="2_10fq5"]
+[ext_resource type="Texture2D" uid="uid://bcfv6k2jfucud" path="res://Imagenes/Debbie.png" id="2_8ya4v"]
+[ext_resource type="Texture2D" uid="uid://demp57i7nsfp2" path="res://Imagenes/Debbie - copia.png" id="3_ib2hq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1yvh2"]
 radius = 50.0
@@ -130,6 +131,154 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.12191479]
+}
+
+[sub_resource type="Animation" id="Animation_teksj"]
+resource_name = "Dash"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cuerpo/torzo:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.49574274]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cuerpo/torzo/PiernaR:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.24702878, -0.91221887]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cuerpo/torzo/PiernaR/PiernaR2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.47627005, 1.1798055]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cuerpo/torzo/PiernaL:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.24702878, -0.09461421]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cuerpo/torzo/PiernaL/PiernaL2:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.47627005, 0.27800953]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cuerpo/torzo/BrazoR:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.07184829, 0.39496577]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cuerpo/torzo/BrazoR/BrazoR2:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.9032794, -0.5385119]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cuerpo/torzo/BrazoL:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.027579919, 0.494394]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cuerpo/torzo/BrazoL/BrazoL2:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.7276956, -0.36292803]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cuerpo/torzo:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -100), Vector2(-3.8146973e-06, -86.99999)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:collision_layer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:collision_mask")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_ib2hq"]
@@ -651,154 +800,6 @@ tracks/9/keys = {
 "values": [Vector2(0, -59.66), Vector2(0, -100)]
 }
 
-[sub_resource type="Animation" id="Animation_teksj"]
-resource_name = "Dash"
-length = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cuerpo/torzo:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.49574274]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cuerpo/torzo/PiernaR:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.24702878, -0.91221887]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Cuerpo/torzo/PiernaR/PiernaR2:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.47627005, 1.1798055]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Cuerpo/torzo/PiernaL:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.24702878, -0.09461421]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Cuerpo/torzo/PiernaL/PiernaL2:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.47627005, 0.27800953]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Cuerpo/torzo/BrazoR:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.07184829, 0.39496577]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Cuerpo/torzo/BrazoR/BrazoR2:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-1.9032794, -0.5385119]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Cuerpo/torzo/BrazoL:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.027579919, 0.494394]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Cuerpo/torzo/BrazoL/BrazoL2:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-1.7276956, -0.36292803]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Cuerpo/torzo:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -100), Vector2(-3.8146973e-06, -86.99999)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath(".:collision_layer")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath(".:collision_mask")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b03ak"]
 _data = {
 &"Correr": SubResource("Animation_10fq5"),
@@ -829,90 +830,92 @@ z_index = 4
 position = Vector2(0, -89.99999)
 rotation = 0.12191479
 scale = Vector2(0.453, 0.484)
-texture = ExtResource("2_10fq5")
-centered = false
-offset = Vector2(-64, -101.65)
+texture = ExtResource("2_8ya4v")
+offset = Vector2(0, -50)
+region_enabled = true
+region_rect = Rect2(302.07196, 309.38885, 199.71826, 229.27704)
 
 [node name="PiernaR" type="Sprite2D" parent="Cuerpo/torzo"]
-z_index = 2
+z_index = -1
 position = Vector2(28.78312, 17.281357)
 rotation = -0.41642267
 scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("2_10fq5")
+texture = ExtResource("2_8ya4v")
 centered = false
 offset = Vector2(-16.09, 0)
 region_enabled = true
-region_rect = Rect2(46.5, 0, 35, 94)
+region_rect = Rect2(444.57214, 557.5591, 34.522705, 103.74097)
 
 [node name="PiernaR2" type="Sprite2D" parent="Cuerpo/torzo/PiernaR"]
 z_index = 1
-position = Vector2(2.069603, 94.59771)
+position = Vector2(5.3952613, 99.404625)
 rotation = 0.47627005
-texture = ExtResource("2_10fq5")
+scale = Vector2(0.47, 0.425)
+texture = ExtResource("2_8ya4v")
 centered = false
-offset = Vector2(-16.09, 0)
+offset = Vector2(-31.385, 0)
 region_enabled = true
-region_rect = Rect2(46.5, 0, 35, 94)
+region_rect = Rect2(431.8037, 693.2707, 141.22937, 219.69006)
 
 [node name="PiernaL" type="Sprite2D" parent="Cuerpo/torzo"]
-z_index = 3
+z_index = -1
 position = Vector2(-26.389286, 19.345871)
 rotation = -0.41642267
 scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("2_10fq5")
+texture = ExtResource("2_8ya4v")
 centered = false
 offset = Vector2(-16.09, 0)
 region_enabled = true
-region_rect = Rect2(46.5, 0, 35, 94)
+region_rect = Rect2(452.5499, 598.8999, 29.700012, 121.00006)
 
 [node name="PiernaL2" type="Sprite2D" parent="Cuerpo/torzo/PiernaL"]
 z_index = 2
-position = Vector2(-0.062101364, 94.02652)
+position = Vector2(-6.9384007, 117.32435)
 rotation = 0.47627005
-scale = Vector2(1, 0.9999999)
-texture = ExtResource("2_10fq5")
+scale = Vector2(0.49, 0.385)
+texture = ExtResource("2_8ya4v")
 centered = false
-offset = Vector2(-16.09, 0)
+offset = Vector2(-36.2, 0)
 region_enabled = true
-region_rect = Rect2(46.5, 0, 35, 94)
+region_rect = Rect2(424.4361, 721.51263, 142.25641, 190.97437)
 
 [node name="BrazoR" type="Sprite2D" parent="Cuerpo/torzo"]
-z_index = 1
-position = Vector2(52.96552, -64.000015)
+z_index = -1
+position = Vector2(95.19728, -71.282166)
 rotation = 0.34413457
 scale = Vector2(0.99999994, 0.9999999)
-texture = ExtResource("2_10fq5")
+texture = ExtResource("2_8ya4v")
 centered = false
 offset = Vector2(-16.09, 0)
 region_enabled = true
-region_rect = Rect2(46.5, 0, 35, 94)
+region_rect = Rect2(452.53806, 645.29486, 29.230774, 99.38458)
 
 [node name="BrazoR2" type="Sprite2D" parent="Cuerpo/torzo/BrazoR"]
 position = Vector2(2.069603, 94.59771)
 rotation = -1.8871953
-texture = ExtResource("2_10fq5")
+texture = ExtResource("3_ib2hq")
 centered = false
-offset = Vector2(-16.09, 0)
+offset = Vector2(-52.05, 0)
 region_enabled = true
-region_rect = Rect2(46.5, 0, 35, 94)
+region_rect = Rect2(657.383, 612.45593, 98.734985, 171.64105)
 
 [node name="BrazoL" type="Sprite2D" parent="Cuerpo/torzo"]
 z_index = 3
 position = Vector2(-68.43267, -57.851242)
 rotation = 0.54045653
 scale = Vector2(0.99999994, 0.9999999)
-texture = ExtResource("2_10fq5")
+texture = ExtResource("3_ib2hq")
 centered = false
 offset = Vector2(-16.09, 0)
 region_enabled = true
-region_rect = Rect2(46.5, 0, 35, 94)
+region_rect = Rect2(699.858, 496.55914, 19.033325, 101.02295)
 
 [node name="BrazoL2" type="Sprite2D" parent="Cuerpo/torzo/BrazoL"]
 z_index = 2
 position = Vector2(-0.06210327, 94.02652)
 rotation = -1.7116115
-texture = ExtResource("2_10fq5")
+texture = ExtResource("3_ib2hq")
 centered = false
-offset = Vector2(-16.09, 0)
+offset = Vector2(-60.785, 0)
 region_enabled = true
-region_rect = Rect2(46.5, 0, 35, 94)
+region_rect = Rect2(649.06006, 614.3407, 90.781006, 168.59332)

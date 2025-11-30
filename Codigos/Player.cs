@@ -1,3 +1,4 @@
+
 using Godot;
 using System;
 
@@ -11,7 +12,7 @@ public partial class Player : CharacterBody2D
 	int t = 0;
 	public int id = 0;
 	string[] keys= new string[] { "W","A","S","D","T","Y","U","Up", "Le", "Do", "Ri", "1", "2", "3" };
-	int Vidas = 5;
+	int Vidas = 5; 
     public override void _Ready()
     {
 		anim = GetNode<AnimationPlayer>("Anim");
@@ -25,14 +26,14 @@ public partial class Player : CharacterBody2D
 		{
 			id = 2;
 			t = 7;
-			Modulate = Colors.Red;
+			//Modulate = Colors.Red;
 			CollisionLayer = 2;
 			CollisionMask = 2;
 		}
 		else
 		{
 			id = 1;
-            Modulate = Colors.Green;
+            //Modulate = Colors.Green;
         }
     }
 	public override void _PhysicsProcess(double delta)
@@ -107,7 +108,6 @@ public partial class Player : CharacterBody2D
 			FStop = 0.5;
 			Vidas--;
             Velocity = Vector2.Zero;
-            GD.Print(Vidas);
 		}
     }
 }

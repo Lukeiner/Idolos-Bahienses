@@ -15,7 +15,7 @@ public partial class Main : Node
 	public Camera2D Camera;
 	public float pixeles = 0;
 	RandomNumberGenerator random;
-	int idA = 0;
+	int idA = 0, contador=0;
 	public int Puntaje = 0;
     public override void _Ready()
 	{
@@ -115,8 +115,9 @@ public partial class Main : Node
 			//Fin
 			Creditos = 5;
 			Puntaje = 0;
+			contador = 0;
 
-		}
+        }
 	}
 
 	public void Spawn(int i)
@@ -182,7 +183,8 @@ public partial class Main : Node
 			var f = temp.Instantiate<Node2D>();
 			f.GlobalPosition = Nido.GlobalPosition;
 			CallDeferred(Node.MethodName.AddChild, f);
-		}
+            contador++;
+        }
 	}
 
 	public void _on_area_2d_body_entered(Node2D node)
