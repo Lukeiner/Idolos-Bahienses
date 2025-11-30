@@ -9,10 +9,13 @@ script = ExtResource("1_xetev")
 [node name="Pidgeo" parent="." instance=ExtResource("2_srfcu")]
 
 [node name="Pidgeo4" parent="." instance=ExtResource("2_srfcu")]
-position = Vector2(241, 58)
+position = Vector2(159, -30)
+
+[node name="Pidgeo5" parent="." instance=ExtResource("2_srfcu")]
+position = Vector2(-161, 36)
 
 [node name="Pidgeo3" parent="." instance=ExtResource("2_srfcu")]
-position = Vector2(39, 214)
+position = Vector2(30, 179)
 
 [node name="Pidgeo2" parent="." instance=ExtResource("2_srfcu")]
-position = Vector2(274, 271)
+position = Vector2(-12, -187)

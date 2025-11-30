@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bshmn6a5ii7ay"]
+
+[ext_resource type="Script" uid="uid://d0s3c7hmpu1uc" path="res://Codigos/Flock.gd" id="1_j2iuo"]
+[ext_resource type="PackedScene" uid="uid://d2bww7m8u3cko" path="res://Tscns/Pidgeo.tscn" id="2_m1wdq"]
+
+[node name="Flock" type="Node2D"]
+script = ExtResource("1_j2iuo")
+
+[node name="Pidgeo" parent="." instance=ExtResource("2_m1wdq")]
+position = Vector2(-312, -66)
+
+[node name="Pidgeo4" parent="." instance=ExtResource("2_m1wdq")]
+position = Vector2(-137, 109)
+
+[node name="Pidgeo3" parent="." instance=ExtResource("2_m1wdq")]
+position = Vector2(-279, 76)
+
+[node name="Pidgeo2" parent="." instance=ExtResource("2_m1wdq")]
+position = Vector2(-38.713684, -3.9668884)
+
+[node name="Pidgeo9" parent="." instance=ExtResource("2_m1wdq")]
+position = Vector2(394, 65)
+
+[node name="Pidgeo10" parent="." instance=ExtResource("2_m1wdq")]
+position = Vector2(230, -107)
+
+[node name="Pidgeo11" parent="." instance=ExtResource("2_m1wdq")]
+position = Vector2(119, 18)
+
+[node name="Pidgeo12" parent="." instance=ExtResource("2_m1wdq")]
+position = Vector2(359.28632, -61.96689)
