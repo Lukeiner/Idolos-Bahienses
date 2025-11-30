@@ -1,33 +1,100 @@
-[gd_scene load_steps=8 format=3 uid="uid://b56u06swrj8be"]
+[gd_scene load_steps=12 format=3 uid="uid://b56u06swrj8be"]
 
 [ext_resource type="Script" uid="uid://doun3lmdhyls7" path="res://Codigos/Main.cs" id="1_ojdui"]
 [ext_resource type="Texture2D" uid="uid://cjjopxt8jdhv2" path="res://icon.svg" id="2_4m062"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ojdui"]
-frequency = 0.0213
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ojdui"]
-width = 6400
-height = 720
-generate_mipmaps = false
-noise = SubResource("FastNoiseLite_ojdui")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojdui"]
-size = Vector2(1280, 20)
+[ext_resource type="Texture2D" uid="uid://mr46vastgvop" path="res://Imagenes/Fondo/Asset_Calle.png" id="2_chhgu"]
+[ext_resource type="Texture2D" uid="uid://dsg6u3u7ds3gx" path="res://Imagenes/Fondo/Asset_Ciudad1.png" id="3_uoiuf"]
+[ext_resource type="Script" uid="uid://cvjgget3mq160" path="res://Codigos/Paralelo.cs" id="3_wat6t"]
+[ext_resource type="Texture2D" uid="uid://cuvn8836eadud" path="res://Imagenes/Fondo/Asset_Ciudad2.png" id="4_wat6t"]
+[ext_resource type="Texture2D" uid="uid://ch1mtw2a8vf1l" path="res://Imagenes/Fondo/Asset_Ciudad3.png" id="5_7su1v"]
+[ext_resource type="Texture2D" uid="uid://blakw8cqc4jmp" path="res://Imagenes/Fondo/Asset_Fondo.png" id="6_i7qol"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4m062"]
-size = Vector2(20, 600)
+size = Vector2(14.75, 725.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojdui"]
+size = Vector2(1910, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b08ir"]
-size = Vector2(100, 515)
+size = Vector2(100, 685)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ojdui")
 
 [node name="Map" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Map"]
-texture = SubResource("NoiseTexture2D_ojdui")
+[node name="Calle1" type="Sprite2D" parent="Map"]
+position = Vector2(960, 922)
+texture = ExtResource("2_chhgu")
+script = ExtResource("3_wat6t")
+
+[node name="Calle2" type="Sprite2D" parent="Map"]
+position = Vector2(2880, 922)
+texture = ExtResource("2_chhgu")
+script = ExtResource("3_wat6t")
+
+[node name="Calle3" type="Sprite2D" parent="Map"]
+position = Vector2(4800, 922)
+texture = ExtResource("2_chhgu")
+script = ExtResource("3_wat6t")
+
+[node name="CuidadA1" type="Sprite2D" parent="Map"]
+z_index = -2
+position = Vector2(960.5, 522)
+texture = ExtResource("3_uoiuf")
+script = ExtResource("3_wat6t")
+
+[node name="CiudadA2" type="Sprite2D" parent="Map"]
+z_index = -2
+position = Vector2(2880.5, 522)
+texture = ExtResource("3_uoiuf")
+script = ExtResource("3_wat6t")
+
+[node name="CiudadA3" type="Sprite2D" parent="Map"]
+z_index = -2
+position = Vector2(4801, 522)
+texture = ExtResource("3_uoiuf")
+script = ExtResource("3_wat6t")
+
+[node name="CiudadB1" type="Sprite2D" parent="Map"]
+z_index = -1
+position = Vector2(961, 553)
+texture = ExtResource("4_wat6t")
+script = ExtResource("3_wat6t")
+
+[node name="CiudadB2" type="Sprite2D" parent="Map"]
+z_index = -1
+position = Vector2(2881, 553)
+texture = ExtResource("4_wat6t")
+script = ExtResource("3_wat6t")
+
+[node name="CiudadB3" type="Sprite2D" parent="Map"]
+z_index = -1
+position = Vector2(4801, 553)
+texture = ExtResource("4_wat6t")
+script = ExtResource("3_wat6t")
+
+[node name="CiudadC1" type="Sprite2D" parent="Map"]
+z_index = -1
+position = Vector2(960, 585)
+texture = ExtResource("5_7su1v")
+script = ExtResource("3_wat6t")
+
+[node name="CiudadC2" type="Sprite2D" parent="Map"]
+z_index = -1
+position = Vector2(2880, 585)
+texture = ExtResource("5_7su1v")
+script = ExtResource("3_wat6t")
+
+[node name="CiudadC3" type="Sprite2D" parent="Map"]
+z_index = -1
+position = Vector2(4800, 585)
+texture = ExtResource("5_7su1v")
+script = ExtResource("3_wat6t")
+
+[node name="AssetFondo" type="Sprite2D" parent="Map"]
+z_index = -3
+texture = ExtResource("6_i7qol")
 centered = false
 
 [node name="Control" type="Control" parent="."]
@@ -44,67 +111,77 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
 text = "Creditos: 5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cam" type="Camera2D" parent="."]
-position = Vector2(0, 3)
-anchor_mode = 0
-limit_enabled = false
+[node name="Cam" type="Node2D" parent="."]
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Cam"]
-position = Vector2(0, 150)
+position = Vector2(0, 153)
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cam/StaticBody2D"]
-position = Vector2(640, 0)
-shape = SubResource("RectangleShape2D_ojdui")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Cam/StaticBody2D"]
-position = Vector2(0, 292)
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Cam/StaticBody2D"]
+position = Vector2(1917.375, 535.75)
 shape = SubResource("RectangleShape2D_4m062")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Cam/StaticBody2D"]
-position = Vector2(1280, 283)
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Cam/StaticBody2D"]
+position = Vector2(3.75, 535.5)
 shape = SubResource("RectangleShape2D_4m062")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Cam/StaticBody2D"]
-position = Vector2(640, 569)
+position = Vector2(966, 929)
+shape = SubResource("RectangleShape2D_ojdui")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Cam/StaticBody2D"]
+position = Vector2(966, 178)
 shape = SubResource("RectangleShape2D_ojdui")
 
 [node name="Next" type="Area2D" parent="Cam"]
-position = Vector2(1283, 737)
+position = Vector2(1928, 1098)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cam/Next"]
-position = Vector2(-90, -291.5)
+position = Vector2(-87, -388)
 shape = SubResource("RectangleShape2D_b08ir")
 disabled = true
 
 [node name="End" type="Area2D" parent="Cam"]
-position = Vector2(171, 730)
+position = Vector2(171, 733)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cam/End"]
-position = Vector2(-90, -291.5)
+position = Vector2(-85, -34)
 shape = SubResource("RectangleShape2D_b08ir")
 disabled = true
 
 [node name="Flecha" type="Sprite2D" parent="Cam"]
-visible = false
 z_index = 200
-position = Vector2(1164, 264)
-scale = Vector2(1.66, 1)
+position = Vector2(1697.0001, 300)
+scale = Vector2(2.9, 1.2000006)
 texture = ExtResource("2_4m062")
 
 [node name="Spawn1" type="Node2D" parent="Cam"]
-position = Vector2(285, 651)
+position = Vector2(251, 903)
 
 [node name="Spawn2" type="Node2D" parent="Cam"]
-position = Vector2(285, 489)
+position = Vector2(251, 674)
 
 [node name="nido" type="Node2D" parent="Cam"]
-position = Vector2(1733, 245)
+position = Vector2(2533, 524)
+
+[node name="Cam" type="Camera2D" parent="Cam"]
+position = Vector2(1054, 453)
+anchor_mode = 0
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_top = 0
+limit_right = 640
+limit_bottom = 360
+position_smoothing_enabled = true
 
 [connection signal="body_entered" from="Cam/Next" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Cam/End" to="." method="_on_end_body_entered"]
