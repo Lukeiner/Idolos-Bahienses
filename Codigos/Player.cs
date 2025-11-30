@@ -11,6 +11,7 @@ public partial class Player : CharacterBody2D
 	int t = 0;
 	public int id = 0;
 	string[] keys= new string[] { "W","A","S","D","T","Y","U","Up", "Le", "Do", "Ri", "1", "2", "3" };
+	int Vidas = 5;
     public override void _Ready()
     {
 		anim = GetNode<AnimationPlayer>("Anim");

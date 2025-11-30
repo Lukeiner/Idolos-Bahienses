@@ -34,62 +34,54 @@ position = Vector2(3840, 906.5)
 scale = Vector2(2, 1.5)
 texture = ExtResource("2_chhgu")
 script = ExtResource("3_wat6t")
-reset = Vector2(3840, 0)
 
 [node name="CuidadA1" type="Sprite2D" parent="Map"]
 z_index = -2
-position = Vector2(0, 436)
-scale = Vector2(2, 1)
+position = Vector2(0, 558.32)
+scale = Vector2(2, 1.135)
 texture = ExtResource("3_uoiuf")
 script = ExtResource("3_wat6t")
 i = 1
 
 [node name="CiudadA2" type="Sprite2D" parent="Map"]
 z_index = -2
-position = Vector2(3840, 436)
-scale = Vector2(2, 1)
+position = Vector2(3840, 558.32)
+scale = Vector2(2, 1.135)
 texture = ExtResource("3_uoiuf")
 script = ExtResource("3_wat6t")
 i = 1
-reset = Vector2(3840, 0)
 
 [node name="CiudadB1" type="Sprite2D" parent="Map"]
-visible = false
 z_index = -1
-position = Vector2(0, 467)
-scale = Vector2(2, 1)
+position = Vector2(0, 558.32)
+scale = Vector2(2, 1.135)
 texture = ExtResource("4_wat6t")
 script = ExtResource("3_wat6t")
 i = 2
 
 [node name="CiudadB2" type="Sprite2D" parent="Map"]
-visible = false
 z_index = -1
-position = Vector2(3840, 467)
-scale = Vector2(2, 1)
+position = Vector2(3840, 558.32)
+scale = Vector2(2, 1.135)
 texture = ExtResource("4_wat6t")
 script = ExtResource("3_wat6t")
 i = 2
-reset = Vector2(3840, 0)
 
 [node name="CiudadC1" type="Sprite2D" parent="Map"]
-visible = false
 z_index = -1
-position = Vector2(0, 499)
-scale = Vector2(2, 1)
+position = Vector2(0, 558.32)
+scale = Vector2(2, 1.135)
 texture = ExtResource("5_7su1v")
 script = ExtResource("3_wat6t")
 i = 3
 
 [node name="CiudadC2" type="Sprite2D" parent="Map"]
-visible = false
 z_index = -1
-position = Vector2(3840, 499)
-scale = Vector2(2, 1)
+position = Vector2(3840, 558.32)
+scale = Vector2(2, 1.135)
 texture = ExtResource("5_7su1v")
 script = ExtResource("3_wat6t")
 i = 3
-reset = Vector2(3840, 0)
 
 [node name="Cam" type="Node2D" parent="."]
 

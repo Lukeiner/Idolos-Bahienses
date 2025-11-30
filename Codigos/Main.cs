@@ -55,8 +55,8 @@ public partial class Main : Node
                     P2.ZIndex = 10;
                 }
             }
-            if (P1 != null || P2 != null)
-            {
+			if (P1 != null || P2 != null)
+			{
 				Vector2 p = Vector2.Zero;
 				int l = 0;
 				if (P1 != null)
@@ -64,36 +64,39 @@ public partial class Main : Node
 					l++;
 					p += P1.GlobalPosition;
 				}
-                if (P2 != null)
-                {
+				if (P2 != null)
+				{
 					l++;
 					p += P2.GlobalPosition;
-                }
-				p /= l;	
+				}
+				p /= l;
 				Camera.GlobalPosition += p - Camera.GlobalPosition;
-                if (boMap)
-                {
-					if(P1!=null)
-						P1.Position += (float)delta*980*Vector2.Left;
-                    if (P2 != null)
-                        P2.Position += (float)delta*980*Vector2.Left;
+				if (boMap)
+				{
+					if (P1 != null)
+						P1.Position += (float)delta * 980 * Vector2.Left;
+					if (P2 != null)
+						P2.Position += (float)delta * 980 * Vector2.Left;
 					Map.Position += (float)delta * 980 * Vector2.Left;
-                }
-                if (TimeDelay > 0)
-                    TimeDelay -= delta;
-                if (TimeDelay < 0)
-                {
-                    //ver flecha
-                    Flecha.Visible = true;
-                    //enable colision de area al borde final
-                    areaNext.Disabled = false;
-                    TimeDelay = 0;
-                }
-                var en=GetTree().GetNodesInGroup("enemigo");
-                if (en.Count==0 && TimeDelay==0 && !boMap && !Flecha.Visible)
-                    TimeDelay = 2;
+				}
+				if (TimeDelay > 0)
+					TimeDelay -= delta;
+				if (TimeDelay < 0)
+				{
+					//ver flecha
+					Flecha.Visible = true;
+					//enable colision de area al borde final
+					areaNext.Disabled = false;
+					TimeDelay = 0;
+				}
+				var en = GetTree().GetNodesInGroup("enemigo");
+				if (en.Count == 0 && TimeDelay == 0 && !boMap && !Flecha.Visible)
+					TimeDelay = 2;
 
 			}
+			else {
+                Camera.GlobalPosition += Spawn1.Position - Camera.GlobalPosition;
+            }
 			if (P2 == null && Input.IsActionJustPressed("3") && !boMap)
 			{
 				Creditos--;
