@@ -1,34 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2bww7m8u3cko"]
+[gd_scene load_steps=7 format=3 uid="uid://d2bww7m8u3cko"]
 
 [ext_resource type="Script" uid="uid://bluvlvht00yjq" path="res://Codigos/Pidgeo.gd" id="1_7enb5"]
-[ext_resource type="Texture2D" uid="uid://cw15400mb2a2v" path="res://Paloma Assets/Pidgeons - Animacion.png" id="2_7enb5"]
+[ext_resource type="Texture2D" uid="uid://dsypdcr14dayu" path="res://Imagenes/Paloma Assets/palomas01.png" id="2_4l0d4"]
+[ext_resource type="Texture2D" uid="uid://dhed2cqgfcnjb" path="res://Imagenes/Paloma Assets/palomas02.png" id="3_r6gcw"]
+[ext_resource type="Texture2D" uid="uid://dayil64fbloa0" path="res://Imagenes/Paloma Assets/palomas03.png" id="4_s6lo3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7enb5"]
 size = Vector2(92, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7enb5"]
-atlas = ExtResource("2_7enb5")
-region = Rect2(0, 0, 1280, 2160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yrim5"]
-atlas = ExtResource("2_7enb5")
-region = Rect2(1280, 0, 1280, 2160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4l0d4"]
-atlas = ExtResource("2_7enb5")
-region = Rect2(2560, 0, 1280, 2160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r6gcw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7enb5")
+"texture": ExtResource("3_r6gcw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yrim5")
+"texture": ExtResource("4_s6lo3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4l0d4")
+"texture": ExtResource("2_4l0d4")
 }],
 "loop": true,
 "name": &"default",
@@ -42,10 +32,10 @@ script = ExtResource("1_7enb5")
 shape = SubResource("RectangleShape2D_7enb5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(43.999996, -42)
+position = Vector2(12, 20)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_r6gcw")
 frame = 1
-frame_progress = 0.5907149
+frame_progress = 0.46394846
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

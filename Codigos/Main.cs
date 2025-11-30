@@ -12,10 +12,10 @@ public partial class Main : Node
 	double TimeDelay = 0;
 	public bool boMap = false;
 	public Node2D Cam;
-    public Camera2D Camera;
+	public Camera2D Camera;
 	public float pixeles = 0;
 
-    public override void _Ready()
+	public override void _Ready()
 	{
 		BasePlayer = ResourceLoader.Load<PackedScene>("res://Tscns/Player.tscn");
 		BaseFlock = ResourceLoader.Load<PackedScene>("res://Tscns/Flock"+1+".tscn");
@@ -33,28 +33,28 @@ public partial class Main : Node
 		areaNextEnd = Cam.GetNode<CollisionShape2D>("End/CollisionShape2D");
 	}
 
-    public override void _Process(double delta)
-    {
-        if (Creditos > 0)
-        {
-            if (P1 == null && Input.IsActionJustPressed("U") && !boMap)
-            {
-                Creditos--;
-                Spawn(1);
-            }
-            if (P1 != null && P2 != null)
-            {
-                if (P1.Position.Y < P2.Position.Y)
-                {
-                    P1.ZIndex = 10;
-                    P2.ZIndex = 20;
-                }
-                else if (P2.Position.Y < P1.Position.Y)
-                {
-                    P1.ZIndex = 20;
-                    P2.ZIndex = 10;
-                }
-            }
+	public override void _Process(double delta)
+	{
+		if (Creditos > 0)
+		{
+			if (P1 == null && Input.IsActionJustPressed("U") && !boMap)
+			{
+				Creditos--;
+				Spawn(1);
+			}
+			if (P1 != null && P2 != null)
+			{
+				if (P1.Position.Y < P2.Position.Y)
+				{
+					P1.ZIndex = 10;
+					P2.ZIndex = 20;
+				}
+				else if (P2.Position.Y < P1.Position.Y)
+				{
+					P1.ZIndex = 20;
+					P2.ZIndex = 10;
+				}
+			}
 			if (P1 != null || P2 != null)
 			{
 				Vector2 p = Vector2.Zero;
@@ -95,8 +95,8 @@ public partial class Main : Node
 
 			}
 			else {
-                Camera.GlobalPosition += Spawn1.Position - Camera.GlobalPosition;
-            }
+				Camera.GlobalPosition += Spawn1.Position - Camera.GlobalPosition;
+			}
 			if (P2 == null && Input.IsActionJustPressed("3") && !boMap)
 			{
 				Creditos--;
@@ -152,11 +152,11 @@ public partial class Main : Node
 			}
 			boMap = false;
 			pixeles = Camera.GlobalPosition.X;
-            var f = BaseFlock.Instantiate<Node2D>();
-            f.GlobalPosition = Nido.GlobalPosition;
-            CallDeferred(Node.MethodName.AddChild, f);
-        }
-    }
+			var f = BaseFlock.Instantiate<Node2D>();
+			f.GlobalPosition = Nido.GlobalPosition;
+			CallDeferred(Node.MethodName.AddChild, f);
+		}
+	}
 
 	public void _on_area_2d_body_entered(Node2D node)
 	{
