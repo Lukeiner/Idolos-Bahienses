@@ -8,12 +8,10 @@ var is_diving:bool = false
 
 var player = null
 
-func _ready():
-	player = get_tree().get_nodes_in_group("player")
-
 func _physics_process(_delta):
+	player = get_tree().get_nodes_in_group("player")
 	if len(player) > 0:
-		var dir0 = player[0].global_position - global_position
+		var dir0 = player[0].global_position+Vector2.UP*100 - global_position
 		var dist0 = dir0.length()
 		if len(player) > 1:
 			var dir1 = player[1].global_position - global_position

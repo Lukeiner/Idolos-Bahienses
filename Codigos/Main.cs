@@ -3,7 +3,7 @@ using Godot;
 public partial class Main : Node
 {
 	public int Creditos = 5;
-	PackedScene BasePlayer,BaseFlock;
+	PackedScene BasePlayer,BaseFlock1, BaseFlock2,BaseFlock3,BaseFlock4;
 	public Player P1=null,P2=null;
 	Node2D  Map, Spawn1, Spawn2, Nido, Flecha;
 	Label CrediLabel;
@@ -14,11 +14,18 @@ public partial class Main : Node
 	public Node2D Cam;
     public Camera2D Camera;
 	public float pixeles = 0;
-
+	RandomNumberGenerator random;
+	int idA = 0;
+	public int puntaje = 0;
     public override void _Ready()
 	{
+		random = new RandomNumberGenerator();
+		random.Randomize();
 		BasePlayer = ResourceLoader.Load<PackedScene>("res://Tscns/Player.tscn");
-		BaseFlock = ResourceLoader.Load<PackedScene>("res://Tscns/Flock"+1+".tscn");
+		BaseFlock1 = ResourceLoader.Load<PackedScene>("res://Tscns/Flock"+1+".tscn");
+		BaseFlock2 = ResourceLoader.Load<PackedScene>("res://Tscns/Flock"+2+".tscn");
+		BaseFlock3 = ResourceLoader.Load<PackedScene>("res://Tscns/Flock"+3+".tscn");
+		BaseFlock4 = ResourceLoader.Load<PackedScene>("res://Tscns/Flock"+4+".tscn");
 		Cam = GetNode<Node2D>("Cam");
 		Camera = Cam.GetNode<Camera2D>("Cam");
 		Map = GetNode<Node2D>("Map");
@@ -26,7 +33,7 @@ public partial class Main : Node
 		Spawn1 = Cam.GetNode<Node2D>("Spawn1");
 		Spawn2 = Cam.GetNode<Node2D>("Spawn2");
 		Nido = Cam.GetNode<Node2D>("nido");
-		ContrMain = Cam.GetNode<Control>("Layer/Control");
+		ContrMain = GetNode<Control>("Layer/Control");
 		CrediLabel = ContrMain.GetNode<Label>("CrediLabel");
 		CrediLabel.Text = "Creditos: 5";
 		areaNext = Cam.GetNode<CollisionShape2D>("Next/CollisionShape2D");
@@ -35,9 +42,9 @@ public partial class Main : Node
 
     public override void _Process(double delta)
     {
-        if (Creditos > 0)
+        if (Creditos >= 0)
         {
-            if (P1 == null && Input.IsActionJustPressed("U") && !boMap)
+            if (P1 == null && Input.IsActionJustPressed("U") && !boMap && Creditos > 0)
             {
                 Creditos--;
                 Spawn(1);
@@ -97,16 +104,19 @@ public partial class Main : Node
 			else {
                 Camera.GlobalPosition += Spawn1.Position - Camera.GlobalPosition;
             }
-			if (P2 == null && Input.IsActionJustPressed("3") && !boMap)
+			if (P2 == null && Input.IsActionJustPressed("3") && !boMap && Creditos>0)
 			{
 				Creditos--;
 				Spawn(2);
 			}
 		}
-		else
+		if (Creditos == 0 && P1 == null && P2 == null)
 		{
-			
-		}
+			//Fin
+			Creditos = 5;
+			Puntaje = 0;
+
+        }
 	}
 
 	public void Spawn(int i)
@@ -136,23 +146,40 @@ public partial class Main : Node
 
 	public void _on_end_body_entered(Node2D node)
 	{
-		if (node.IsInGroup("player") && ((Player)node).id==1)
+		if (node.IsInGroup("player") && ((Player)node).id==idA)
 		{
 			areaNextEnd.CallDeferred(CollisionShape2D.MethodName.SetDisabled, true);
 			if (P1 != null)
 			{
 				P1.FStop = 0.2;
-				P1.anim.Play();
+				P1.anim.CallDeferred(AnimationPlayer.MethodName.Play);
 
 			}
 			if (P2 != null)
 			{
 				P2.FStop = 0.2;
-				P2.anim.Play();
-			}
-			boMap = false;
+                P2.anim.CallDeferred(AnimationPlayer.MethodName.Play);
+            }
+            boMap = false;
 			pixeles = Camera.GlobalPosition.X;
-            var f = BaseFlock.Instantiate<Node2D>();
+			var r=random.RandiRange(1,4);
+			PackedScene temp=null;
+			switch (r)
+			{
+				case 1:
+					temp = BaseFlock1;
+					break;
+                case 2:
+                    temp = BaseFlock2;
+                    break;
+                case 3:
+                    temp = BaseFlock3;
+                    break;
+                case 4:
+                    temp = BaseFlock4;
+                    break;
+            }
+            var f = temp.Instantiate<Node2D>();
             f.GlobalPosition = Nido.GlobalPosition;
             CallDeferred(Node.MethodName.AddChild, f);
         }
@@ -160,23 +187,23 @@ public partial class Main : Node
 
 	public void _on_area_2d_body_entered(Node2D node)
 	{
-		if (node.IsInGroup("player") && ((Player)node).id == 1)
+		if (node.IsInGroup("player"))
 		{
-			
-			Flecha.CallDeferred(Sprite2D.MethodName.SetVisible, false);
+			idA=((Player)node).id;
+            Flecha.CallDeferred(Sprite2D.MethodName.SetVisible, false);
 			areaNext.CallDeferred(CollisionShape2D.MethodName.SetDisabled, true);
 			areaNextEnd.CallDeferred(CollisionShape2D.MethodName.SetDisabled, false);
 			if (P1 != null)
 			{
 				P1.FStop = 10;
-				P1.anim.Pause();
-			}
-			if (P2 != null)
+                P1.anim.CallDeferred(AnimationPlayer.MethodName.Play);
+            }
+            if (P2 != null)
 			{
 				P2.FStop = 10;
-				P2.anim.Pause();
-			}
-			boMap = true;
+                P2.anim.CallDeferred(AnimationPlayer.MethodName.Pause);
+            }
+            boMap = true;
 		}
 
 	}

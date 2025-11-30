@@ -46,10 +46,13 @@ public partial class Player : CharacterBody2D
 		}
 		else
 		{
-			if(FStop == 0)
+			if (FStop == 0)
+			{
 				anim.Play("Quieto");
-            velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-			velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
+
+				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+				velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
+			}
 		}
 		if (FStop > 0)
 		{
@@ -64,34 +67,44 @@ public partial class Player : CharacterBody2D
 					else
 						God.Lambda.Main.P2 = null;
 				}
+                CollisionLayer = (uint)id;
+                CollisionMask = (uint)id;
                 FStop = 0;
 			}
 		}
 		else
 		{
 			if (Input.IsActionJustPressed(keys[4 + t]))
-            {
-                FStop = 0.25;
-                anim.Play("Golpe");
-            }
-            else if (Input.IsActionJustPressed(keys[5 + t]))
 			{
-				FStop = 0.5;
-                anim.Play("Evadir");
-
-            }
+				FStop = 0.25;
+				anim.Play("Golpe");
+			}
+			else if (Input.IsActionJustPressed(keys[5 + t]))
+			{
+				FStop = 0.25;
+				velocity = Vector2.Right * cuerpo.Scale.X* Speed*4;
+                anim.Play("Dash");
+			}
+		}
+		if (God.Lambda.Main.boMap)
+		{
+            velocity = Vector2.Zero;
+            CollisionLayer = (uint)id;
+            CollisionMask = (uint)id;
         }
 
-			Velocity = velocity;
+        Velocity = velocity;
 		MoveAndSlide();
 	}
 	public void Damage()
 	{
-		if (FStop == 0 && Vidas > 1)
+		if (FStop == 0 && Vidas > 0)
 		{
 			anim.Play("Daño");
 			FStop = 0.5;
 			Vidas--;
+            Velocity = Vector2.Zero;
+            GD.Print(Vidas);
 		}
     }
 }
