@@ -10,7 +10,8 @@ public partial class Player : CharacterBody2D
 	Node2D cuerpo;
 	public double FStop=0;
 	int t = 0;
-	public int id = 0;
+	bool CanDamage = true;
+    public int id = 0;
 	string[] keys= new string[] { "W","A","S","D","T","Y","U","Up", "Le", "Do", "Ri", "1", "2", "3" };
 	int Vidas = 5; 
     public override void _Ready()
@@ -72,19 +73,21 @@ public partial class Player : CharacterBody2D
                 CollisionLayer = (uint)id;
                 CollisionMask = (uint)id;
                 FStop = 0;
-			}
+                CanDamage = true;
+            }
 		}
 		else
 		{
 			if (Input.IsActionJustPressed(keys[4 + t]))
 			{
-				FStop = 0.25;
+				FStop = 0.2;
+				CanDamage = false;
 				anim.Play("Golpe");
 			}
 			else if (Input.IsActionJustPressed(keys[5 + t]))
 			{
-				FStop = 0.25;
-				velocity = Vector2.Right * cuerpo.Scale.X* Speed*4;
+				FStop = 0.2;
+				velocity = Vector2.Right * cuerpo.Scale.X* Speed*6;
                 anim.Play("Dash");
 			}
 		}
@@ -101,7 +104,7 @@ public partial class Player : CharacterBody2D
 	public void Damage()
 	{
 		God.Lambda.Main.Puntaje++;
-		if (FStop == 0 && Vidas > 0)
+		if (FStop == 0 && Vidas > 0 && CanDamage)
 		{
 			anim.Play("Daño");
 			FStop = 0.5;

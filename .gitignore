@@ -5,3 +5,4 @@ bin/
 .git/
 .godot/
 /android/
+*.tmp

@@ -3,7 +3,7 @@ using System;
 
 public partial class Boss : Node
 {
-	int Try = 3;
+	int Try = 6;
 	AnimationPlayer anim;
 	float f = 3;
 	RandomNumberGenerator r;
@@ -37,6 +37,7 @@ public partial class Boss : Node
 		if (n is Player p)
 		{
 			Try++;
+			p.Damage();
         }
 	}
 }

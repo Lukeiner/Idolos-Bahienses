@@ -14,7 +14,6 @@ func _process(_delta: float) -> void:
 
 
 func toggle_pause():	
-	print(is_paused)
 	if is_paused: 
 		is_paused = false
 	else:

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ch1mtw2a8vf1l" path="res://Imagenes/Fondo/Asset_Ciudad3.png" id="5_7su1v"]
 [ext_resource type="Texture2D" uid="uid://blakw8cqc4jmp" path="res://Imagenes/Fondo/Asset_Fondo.png" id="6_i7qol"]
 [ext_resource type="Texture2D" uid="uid://8tqkskdhkmxs" path="res://Imagenes/Asset_Boton flecha.png" id="7_43msu"]
-[ext_resource type="Script" uid="uid://bqdb48jv8kbk4" path="res://Tscns/PauseMenu.gd" id="9_wat6t"]
+[ext_resource type="Script" uid="uid://bqdb48jv8kbk4" path="res://Codigos/PauseMenu.gd" id="9_wat6t"]
 [ext_resource type="Texture2D" uid="uid://dplxc020x6ces" path="res://Imagenes/Menú Pausa/Asset_Menu pausa.png" id="10_7su1v"]
 [ext_resource type="Texture2D" uid="uid://bwwpv5ydij4a0" path="res://Imagenes/Menú Pausa/Asset_Boton reintentar.png" id="11_563ux"]
 [ext_resource type="Texture2D" uid="uid://dyn4vgefgha3h" path="res://Imagenes/Menú Pausa/Asset_Boton mute.png" id="12_sw4ju"]
@@ -344,6 +344,7 @@ centered = false
 
 [node name="WIN" type="Sprite2D" parent="."]
 visible = false
+z_index = 10
 position = Vector2(-288, -118)
 scale = Vector2(0.659, 0.604)
 texture = ExtResource("20_ux65b")

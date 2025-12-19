@@ -8,6 +8,7 @@ extends Area2D
 var is_diving:bool = false
 @export var muerto:bool = false
 @onready var a := $anim
+@onready var spr := $AnimatedSprite2D
 var player = null
 
 func _physics_process(_delta):
@@ -23,6 +24,10 @@ func _physics_process(_delta):
 			var dir1 = player[1].global_position - global_position
 			var dist1 = dir1.length()
 			if dist1<dist0 :
+				if dir1.x<0:
+					spr.flip_h = false
+				else:
+					spr.flip_h = true
 				if (dist1<attack_range):
 					a.current_animation="2"
 					position += dir1.normalized() * _delta* speed*5
@@ -30,6 +35,10 @@ func _physics_process(_delta):
 					a.current_animation="1"
 					position += dir1.normalized() * _delta* speed
 			else:
+				if dir0.x<0:
+					spr.flip_h = false
+				else:
+					spr.flip_h = true
 				if (dist0<attack_range):
 					a.current_animation="2"
 					position += dir0.normalized() * _delta* speed*5
@@ -37,6 +46,10 @@ func _physics_process(_delta):
 					a.current_animation="1"
 					position += dir0.normalized() * _delta* speed
 		else:
+			if dir0.x<0:
+				spr.flip_h = false
+			else:
+				spr.flip_h = true
 			if (dist0<attack_range):
 				a.current_animation="2"
 				position += dir0.normalized() * _delta* speed*5

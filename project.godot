@@ -15,7 +15,7 @@ run/main_scene="uid://b56u06swrj8be"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 boot_splash/image="uid://kk6ji5h10kqp"
 config/icon="res://icon.svg"
-boot_splash/minimum_display_time=2000
+boot_splash/minimum_display_time=3000
 
 [autoload]
 
